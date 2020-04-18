@@ -2,11 +2,14 @@ ymaps.ready(init);
 function init() {
     window.lsm = new ymaps.Map("LiveStreets", {
         center: [52.84460345, 88.04247036],
-        zoom: 10,
-        nativeFullscreen: true,
-        controls: ['zoomControl', 'fullscreenControl', 'typeSelector', 'searchControl'],
+        zoom: 5,
+        controls: ['zoomControl', 'fullscreenControl', 'typeSelector', 'searchControl']
+    },
+    {
+        minZoom: 0,
         restrictMapArea: [[53.294794700094776, 87.06966604079525], [52.439613574668044, 89.06917775954112]],
-        suppressMapOpenBlock: true
+        suppressMapOpenBlock: true,
+        nativeFullscreen: true
     });
     searchControl = lsm.controls.get('searchControl');
     searchControl.options.set({
@@ -35,16 +38,18 @@ function init() {
             // Определяет наличие поля balloon.
             //hasBalloon: false,
             hasHint: false,
-            //gridSize: 999999
+            gridSize: 256,
+            margin: [-120, -128, 128, 128]
         }),
         points = [
             [52.76408647, 87.86300161], [52.76461362, 87.86288359], [52.76736671, 87.87067314], [52.75888720, 87.84888825],
-            [52.76276526, 87.83808069], [52.76358788, 87.84605100], [52.76454215, 87.88069933], [52.77287235, 87.89712498],
+            [52.76276526, 87.83808069], [52.76358788, 87.84605100], [52.76454215, 87.88069933], [52.77057999, 87.89628485],
+            [52.77419891, 87.88666992], [52.77358950, 87.89579969], [52.77647089, 87.89370150], [52.77606619, 87.88910185]
         ],
         geoObjects = [];
 
     for (var i = 0, len = points.length; i < len; i++) {
-        geoObjects[i] = new ymaps.Placemark(points[i], { hintContent: 'Проект *****' }, {
+        geoObjects[i] = new ymaps.Placemark(points[i], { hintContent: 'Проект *****'+i }, {
             iconColor: getRandomColor()
         });
     }

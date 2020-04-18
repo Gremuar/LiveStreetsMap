@@ -1,6 +1,7 @@
 {
     "version": "0.1.0",
     "configurations": [
+        //Debug plugin: VS Code - Debugger for Chrome
         {
             "name": "Launch index.html",
             "type": "chrome",

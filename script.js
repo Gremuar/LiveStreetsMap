@@ -50,7 +50,7 @@ function init() {
     }
 
     clusterer.add(geoObjects);
-    //lsm.geoObjects.add(clusterer);
+    lsm.geoObjects.add(clusterer);
     console.log(clusterer.getBounds());
     /* автоматический зум на центр кластера
         lsm.setBounds(clusterer.getBounds(), {

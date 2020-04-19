@@ -1,0 +1,108 @@
+{
+    "map": {
+        "params": {
+            "center": [
+                52.84460345,
+                88.04247036
+            ],
+            "zoom": 5,
+            "controls": [
+                "zoomControl",
+                "fullscreenControl",
+                "typeSelector",
+                "searchControl"
+            ]
+        },
+        "options": {
+            "minZoom": 0,
+            "restrictMapArea": [
+                [
+                    53.294794700094776,
+                    87.06966604079525
+                ],
+                [
+                    52.439613574668044,
+                    89.06917775954112
+                ]
+            ],
+            "suppressMapOpenBlock": true,
+            "nativeFullscreen": true
+        }
+    },
+    "searchControl": {
+        "params": {
+            // Макет метки кластера pieChart.
+            "clusterIconLayout": "default#pieChart",
+            // Радиус диаграммы в пикселях.
+            "clusterIconPieChartRadius": 25,
+            // Радиус центральной части макета.
+            "clusterIconPieChartCoreRadius": 10,
+            // Ширина линий-разделителей секторов и внешней обводки диаграммы.
+            "clusterIconPieChartStrokeWidth": 3,
+            "hasBalloon": false,
+            "gridSize": 256,
+            "margin": [
+                -120,
+                -128,
+                128,
+                128
+            ]
+        }
+    },
+    "placemark-options": {
+        "iconLayout": "default#image", //значение 'default#image' или 'default#imageWithContent' для меток соответственно без текста и с текстом поверх картинки
+        "iconImageHref": "",
+        "iconImageSize": "",
+        "iconImageOffset": "", //сдвиг значка в пикселах относительно точки привязки
+        "iconContentOffset": "", //для меток с текстом сдвиг текста относительно точки привязки метки
+        "iconColor": [ //Цвета иконок меток для рандомизатора
+            "#DB425A",
+            "#4C4DA2",
+            "#00DEAD",
+            "#D73AD2",
+            "#F8CC4D",
+            "#F88D00",
+            "#AC646C",
+            "#548FB7"
+        ]
+    },
+    "placemark_data": {
+        //улица ленина
+        "place-1": {
+            "id": 1,
+            "coords": [
+                52.76408647,
+                87.86300161
+            ],
+            "header": "Школа №1",
+            "photo": "/image.jpg",
+            "text": "Улица названа в честь ФИО в **** году, за заслуги ...",
+            "link": "uo-tashtagol.3dn.ru/project-live-streets",
+            "hint": "Улица Ленина"
+        },
+        "place-2": {
+            "id": 2,
+            "coords": [
+                52.76461362,
+                87.86288359
+            ],
+            "header": "Школа №1",
+            "photo": "/image.jpg",
+            "text": "Улица названа в честь ФИО в **** году, за заслуги ...",
+            "link": "uo-tashtagol.3dn.ru/project-live-streets",
+            "hint": "Улица Ленина"
+        },
+        "place-3": {
+            "id": 3,
+            "coords": [
+                52.76736671,
+                87.87067314
+            ],
+            "header": "Школа №1",
+            "photo": "/image.jpg",
+            "text": "Улица названа в честь ФИО в **** году, за заслуги ...",
+            "link": "uo-tashtagol.3dn.ru/project-live-streets",
+            "hint": "Улица Ленина"
+        }
+    }
+}

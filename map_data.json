@@ -31,20 +31,35 @@
         }
     },
     "searchControl": {
-        "params": {
-            "clusterIconLayout": "default#pieChart",
-            "clusterIconPieChartRadius": 25,
-            "clusterIconPieChartCoreRadius": 10,
-            "clusterIconPieChartStrokeWidth": 3,
-            "hasBalloon": false,
-            "gridSize": 256,
-            "margin": [
-                -120,
-                -128,
-                128,
-                128
+        "noPlacemark": true,
+        "placeholderContent": "Введите название улицы",
+        "boundedBy": [
+            [
+                53.294794700094776,
+                87.06966604079525
+            ],
+            [
+                52.439613574668044,
+                89.06917775954112
             ]
-        }
+        ],
+        "strictBounds": true,
+        "suppressYandexSearch": true,
+        "noSuggestPanel": true
+    },
+    "clusterer": {
+        "clusterIconLayout": "default#pieChart",
+        "clusterIconPieChartRadius": 25,
+        "clusterIconPieChartCoreRadius": 10,
+        "clusterIconPieChartStrokeWidth": 3,
+        "hasBalloon": false,
+        "gridSize": 256,
+        "margin": [
+            -120,
+            -128,
+            128,
+            128
+        ]
     },
     "placemark_options": {
         "iconLayout": "default#image",
@@ -72,7 +87,7 @@
                     87.86300161
                 ],
                 "header": "Школа №1",
-                "photo": "/image.jpg",
+                "photo": "http://deduhova.ru/statesman/wp-content/uploads/2017/03/1058763_600.jpg",
                 "text": "Улица названа в честь ФИО в **** году, за заслуги ...",
                 "link": "uo-tashtagol.3dn.ru/project-live-streets",
                 "hint": "Улица Ленина"
@@ -84,7 +99,7 @@
                     87.86288359
                 ],
                 "header": "Школа №1",
-                "photo": "/image.jpg",
+                "photo": "http://deduhova.ru/statesman/wp-content/uploads/2017/03/1058763_600.jpg",
                 "text": "Улица названа в честь ФИО в **** году, за заслуги ...",
                 "link": "uo-tashtagol.3dn.ru/project-live-streets",
                 "hint": "Улица Ленина"
@@ -96,7 +111,7 @@
                     87.87067314
                 ],
                 "header": "Школа №1",
-                "photo": "/image.jpg",
+                "photo": "http://deduhova.ru/statesman/wp-content/uploads/2017/03/1058763_600.jpg",
                 "text": "Улица названа в честь ФИО в **** году, за заслуги ...",
                 "link": "uo-tashtagol.3dn.ru/project-live-streets",
                 "hint": "Улица Ленина"

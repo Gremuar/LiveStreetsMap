@@ -64,46 +64,43 @@
         ]
     },
     "placemark_data": {
-        "Lenina": {
-            "name": "Улица Ленина",
-            "places": [
-                {
-                    "id": 1,
-                    "coords": [
-                        52.76408647,
-                        87.86300161
-                    ],
-                    "header": "Школа №1",
-                    "photo": "/image.jpg",
-                    "text": "Улица названа в честь ФИО в **** году, за заслуги ...",
-                    "link": "uo-tashtagol.3dn.ru/project-live-streets",
-                    "hint": "Улица Ленина"
-                },
-                {
-                    "id": 2,
-                    "coords": [
-                        52.76461362,
-                        87.86288359
-                    ],
-                    "header": "Школа №1",
-                    "photo": "/image.jpg",
-                    "text": "Улица названа в честь ФИО в **** году, за заслуги ...",
-                    "link": "uo-tashtagol.3dn.ru/project-live-streets",
-                    "hint": "Улица Ленина"
-                },
-                {
-                    "id": 3,
-                    "coords": [
-                        52.76736671,
-                        87.87067314
-                    ],
-                    "header": "Школа №1",
-                    "photo": "/image.jpg",
-                    "text": "Улица названа в честь ФИО в **** году, за заслуги ...",
-                    "link": "uo-tashtagol.3dn.ru/project-live-streets",
-                    "hint": "Улица Ленина"
-                }
-            ]
-        }
+        "places": [
+            {
+                "id": 1,
+                "coords": [
+                    52.76408647,
+                    87.86300161
+                ],
+                "header": "Школа №1",
+                "photo": "/image.jpg",
+                "text": "Улица названа в честь ФИО в **** году, за заслуги ...",
+                "link": "uo-tashtagol.3dn.ru/project-live-streets",
+                "hint": "Улица Ленина"
+            },
+            {
+                "id": 2,
+                "coords": [
+                    52.76461362,
+                    87.86288359
+                ],
+                "header": "Школа №1",
+                "photo": "/image.jpg",
+                "text": "Улица названа в честь ФИО в **** году, за заслуги ...",
+                "link": "uo-tashtagol.3dn.ru/project-live-streets",
+                "hint": "Улица Ленина"
+            },
+            {
+                "id": 3,
+                "coords": [
+                    52.76736671,
+                    87.87067314
+                ],
+                "header": "Школа №1",
+                "photo": "/image.jpg",
+                "text": "Улица названа в честь ФИО в **** году, за заслуги ...",
+                "link": "uo-tashtagol.3dn.ru/project-live-streets",
+                "hint": "Улица Ленина"
+            }
+        ]
     }
 }

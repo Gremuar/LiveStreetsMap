@@ -31,13 +31,9 @@
     },
     "searchControl": {
         "params": {
-            // Макет метки кластера pieChart.
             "clusterIconLayout": "default#pieChart",
-            // Радиус диаграммы в пикселях.
             "clusterIconPieChartRadius": 25,
-            // Радиус центральной части макета.
             "clusterIconPieChartCoreRadius": 10,
-            // Ширина линий-разделителей секторов и внешней обводки диаграммы.
             "clusterIconPieChartStrokeWidth": 3,
             "hasBalloon": false,
             "gridSize": 256,
@@ -50,12 +46,12 @@
         }
     },
     "placemark-options": {
-        "iconLayout": "default#image", //значение 'default#image' или 'default#imageWithContent' для меток соответственно без текста и с текстом поверх картинки
+        "iconLayout": "default#image",
         "iconImageHref": "",
         "iconImageSize": "",
-        "iconImageOffset": "", //сдвиг значка в пикселах относительно точки привязки
-        "iconContentOffset": "", //для меток с текстом сдвиг текста относительно точки привязки метки
-        "iconColor": [ //Цвета иконок меток для рандомизатора
+        "iconImageOffset": "",
+        "iconContentOffset": "",
+        "iconColor": [
             "#DB425A",
             "#4C4DA2",
             "#00DEAD",
@@ -67,7 +63,7 @@
         ]
     },
     "placemark_data": {
-        "Lenina": { //улица ленина
+        "Lenina": {
             "name": "Улица Ленина",
             "places": [
                 {

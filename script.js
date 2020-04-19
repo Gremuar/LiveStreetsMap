@@ -1,84 +1,62 @@
 ymaps.ready(init);
 function init() {
-    window.lsm = new ymaps.Map("LiveStreets", {
-        center: [52.84460345, 88.04247036],
-        zoom: 5,
-        controls: ['zoomControl', 'fullscreenControl', 'typeSelector', 'searchControl']
-    },
-    {
-        minZoom: 0,
-        restrictMapArea: [[53.294794700094776, 87.06966604079525], [52.439613574668044, 89.06917775954112]],
-        suppressMapOpenBlock: true,
-        nativeFullscreen: true
-    });
-    searchControl = lsm.controls.get('searchControl');
-    searchControl.options.set({
-        noPlacemark: true,
-        placeholderContent: 'Введите название улицы',
-        boundedBy: [[53.294794700094776, 87.06966604079525], [52.439613574668044, 89.06917775954112]],
-        strictBounds: true,
-        suppressYandexSearch: true,
-        noSuggestPanel: true
+    getJson('https://gremuar.github.io/LiveStreetsMap/map_data.json').then((config) => {
+        if (typeof (config)) {
+            console.log(config);
+            mapInit(config.map);
+            if (typeof (lsm) == 'object') {
+                let searchControl, mapObjects, clusterer;
+
+                searchControl = lsm.controls.get('searchControl');
+                searchControl.options.set(config.searchControl);
+                mapObjects = genMapObjects({
+                    "placemark_options": config.placemark_options,
+                    "placemark_data": config.placemark_data
+                });
+                clusterer = new ymaps.Clusterer(config.clusterer);
+                clusterer.add(mapObjects);
+                lsm.geoObjects.add(clusterer);
+            };
+        } else { console.warn(config) }
     });
 
-    // Значения цветов иконок.
-    let placemarkColors = [
-        '#DB425A', '#4C4DA2', '#00DEAD', '#D73AD2',
-        '#F8CC4D', '#F88D00', '#AC646C', '#548FB7'
-    ],
-        clusterer = new ymaps.Clusterer({
-            // Макет метки кластера pieChart.
-            clusterIconLayout: 'default#pieChart',
-            // Радиус диаграммы в пикселях.
-            clusterIconPieChartRadius: 25,
-            // Радиус центральной части макета.
-            clusterIconPieChartCoreRadius: 10,
-            // Ширина линий-разделителей секторов и внешней обводки диаграммы.
-            clusterIconPieChartStrokeWidth: 3,
-            // Определяет наличие поля balloon.
-            //hasBalloon: false,
-            hasHint: false,
-            gridSize: 256,
-            margin: [-120, -128, 128, 128]
-        }),
-        points = [
-            [52.76408647, 87.86300161], [52.76461362, 87.86288359], [52.76736671, 87.87067314], [52.75888720, 87.84888825],
-            [52.76276526, 87.83808069], [52.76358788, 87.84605100], [52.76454215, 87.88069933], [52.77057999, 87.89628485],
-            [52.77419891, 87.88666992], [52.77358950, 87.89579969], [52.77647089, 87.89370150], [52.77606619, 87.88910185]
-        ],
-        geoObjects = [];
-
-    for (var i = 0, len = points.length; i < len; i++) {
-        geoObjects[i] = new ymaps.Placemark(points[i], { hintContent: 'Проект *****'+i }, {
-            iconColor: getRandomColor()
-        });
+    //Functions
+    function getRandom(max) {
+        return Math.floor(Math.random() * max);
     }
 
-    clusterer.add(geoObjects);
-    lsm.geoObjects.add(clusterer);
-    console.log(clusterer.getBounds());
-    /* автоматический зум на центр кластера
-        lsm.setBounds(clusterer.getBounds(), {
-            checkZoomRange: false
-        });
-    */
-    function getRandomColor() {
-        return placemarkColors[Math.floor(Math.random() * placemarkColors.length)];
+    async function getJson(url) {
+        let response = await fetch(url);
+        if (response.ok) {
+            let json = await response.json();
+            return json;
+        } else {
+            return "Ошибка HTTP: " + response.status;
+        }
     }
 
+    function mapInit(conf) {
+        window.lsm = new ymaps.Map(conf.conteiner, conf.params, conf.options);
+    }
 
+    function genMapObjects(mapData) {
+        let geoObjects = [],
+            places = mapData.placemark_data.places,
+            opt = mapData.placemark_options;
 
-    /* ---------
-    let myPlacemark = new ymaps.Placemark([52.76173973, 87.85590679], {
-        balloonContentHeader: 'Школа №1',
-        balloonContentBody: '<div class="icon"><img src="https://sun9-58.userapi.com/c845420/v845420937/3900b/Z44u3uvkI7I.jpg?ava=1"/></div><p>Описание проекта</p>',
-        balloonContentFooter: '<a href="javascript://">Подробнее</a>',
-        hintContent: 'Проект *****'
-    });
-    
-    lsm.geoObjects.add(myPlacemark);
-    
-    // Балун откроется в точке «привязки» балуна — т. е. над меткой.
-    // myPlacemark.balloon.open();*/
-
+        for (let i = 0; i < places.length; i++) {
+            geoObjects[i] = new ymaps.Placemark(places[i].coords, {
+                balloonContentHeader: places[i].header,
+                balloonContentBody: "<div style='max-width:300px'>" +
+                    "<img src='" + places[i].photo + "' style='float:left;width:30%;margin-right:10px'/>" +
+                    "<p>" + places[i].text + "</p>",
+                balloonContentFooter: "<a href='" + places[i].link + "' target='_blank'>Подробнее о проекте</a>",
+                hintContent: places[i].hint
+            },
+                {
+                    iconColor: opt.iconColor[getRandom(opt.iconColor.length)]
+                });
+        }
+        return geoObjects;
+    }
 }

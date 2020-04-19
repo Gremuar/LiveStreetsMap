@@ -1,5 +1,6 @@
 {
     "map": {
+        "conteiner": "LiveStreets",
         "params": {
             "center": [
                 52.84460345,

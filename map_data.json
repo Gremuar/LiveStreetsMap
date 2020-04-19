@@ -46,7 +46,7 @@
             ]
         }
     },
-    "placemark-options": {
+    "placemark_options": {
         "iconLayout": "default#image",
         "iconImageHref": "",
         "iconImageSize": "",

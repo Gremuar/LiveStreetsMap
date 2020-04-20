@@ -130,7 +130,7 @@
                 "hint": "Улица Ленина"
             },
             {
-                "id": 3,
+                "id": 4,
                 "street": [
                     "Каз",
                     "улица Ленина"
@@ -138,6 +138,38 @@
                 "coords": [
                     53.11310980,
                     87.54661205
+                ],
+                "header": "Школа №1::Проект ***",
+                "photo": "http://deduhova.ru/statesman/wp-content/uploads/2017/03/1058763_600.jpg",
+                "text": "Улица названа в честь ФИО в **** году, за заслуги ...",
+                "link": "uo-tashtagol.3dn.ru/project-live-streets",
+                "hint": "Улица Ленина"
+            },
+            {
+                "id": 5,
+                "street": [
+                    "Таштагол",
+                    "улица Ленина"
+                ],
+                "coords": [
+                    52.77017576,
+                    87.88727657
+                ],
+                "header": "Школа №1::Проект ***",
+                "photo": "http://deduhova.ru/statesman/wp-content/uploads/2017/03/1058763_600.jpg",
+                "text": "Улица названа в честь ФИО в **** году, за заслуги ...",
+                "link": "uo-tashtagol.3dn.ru/project-live-streets",
+                "hint": "Улица Ленина"
+            },
+            {
+                "id": 6,
+                "street": [
+                    "Таштагол",
+                    "улица Ленина"
+                ],
+                "coords": [
+                    52.77007490,
+                    87.88795249
                 ],
                 "header": "Школа №1::Проект ***",
                 "photo": "http://deduhova.ru/statesman/wp-content/uploads/2017/03/1058763_600.jpg",

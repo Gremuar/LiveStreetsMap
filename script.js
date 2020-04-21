@@ -1,11 +1,11 @@
 ymaps.ready(init);
 function init() {
     getJson('https://gremuar.github.io/LiveStreetsMap/map_data.json').then((config) => {
-        if (typeof (config)) {
+        if (typeof (config) == "object") {
             console.log(config);
             mapInit(config.map);
             if (typeof (lsm) == 'object') {
-                let searchControl, mapObjects, clusterer;
+                let searchControl, mapObjects, clusterer, streets;
 
                 searchControl = lsm.controls.get('searchControl');
                 searchControl.options.set(config.searchControl);
@@ -16,8 +16,15 @@ function init() {
                 clusterer = new ymaps.Clusterer(config.clusterer);
                 clusterer.add(mapObjects);
                 lsm.geoObjects.add(clusterer);
+                streets = getStreets(config.placemark_data.places);
             };
-        } else { console.warn(config) }
+        } else {
+            console.warn(config);
+            let cont = document.querySelector('#LiveStreets');
+            cont.style.cssText = 'width:auto;height:auto;'
+            cont.classList.add('alert-msg__danger', 'alert-msg');
+            cont.innerHTML = "Не удалось загрузить конфигурацию карты =\\";
+        }
     });
 
     //Functions
@@ -51,12 +58,22 @@ function init() {
                     "<img src='" + places[i].photo + "' style='float:left;width:30%;margin-right:10px'/>" +
                     "<p>" + places[i].text + "</p>",
                 balloonContentFooter: "<a href='" + places[i].link + "' target='_blank'>Подробнее о проекте</a>",
-                hintContent: places[i].hint
+                hintContent: places[i].hint+" "+places[i].id
             },
                 {
                     iconColor: opt.iconColor[getRandom(opt.iconColor.length)]
                 });
         }
         return geoObjects;
+    }
+
+    function getStreets(mapData) {
+        let streets = [];
+
+        mapData.map( (obj)=> {
+            let temp_str = obj.street.toLowerCase().replace(' ','');
+            if(!streets.includes( temp_str )) streets.push( temp_str );
+        });
+        return streets;
     }
 }

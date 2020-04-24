@@ -28,7 +28,8 @@
                 ]
             ],
             "suppressMapOpenBlock": true,
-            "nativeFullscreen": true
+            "nativeFullscreen": true,
+            "yandexMapDisablePoiInteractivity": true
         }
     },
     "searchControl": {

@@ -54,7 +54,7 @@
         "clusterIconPieChartCoreRadius": 10,
         "clusterIconPieChartStrokeWidth": 3,
         "hasBalloon": false,
-        "gridSize": 256,
+        "gridSize": 128,
         "margin": [
             -120,
             -128,
@@ -150,8 +150,8 @@
                 "id": 6,
                 "street": "Таштагол, Ленина",
                 "coords": [
-                    52.770820,
-                    87.886667
+                    52.770719,
+                    87.886355
                 ],
                 "header": "Школа №1::Проект ***",
                 "photo": "http://deduhova.ru/statesman/wp-content/uploads/2017/03/1058763_600.jpg",

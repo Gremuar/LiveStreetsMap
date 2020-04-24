@@ -61,9 +61,11 @@ function init() {
                     "<img src='" + places[i].photo + "' style='float:left;width:30%;margin-right:10px'/>" +
                     "<p>" + places[i].text + "</p>",
                 balloonContentFooter: "<a href='" + places[i].link + "' target='_blank'>Подробнее о проекте</a>",
-                hintContent: places[i].hint + " " + places[i].id
+                hintContent: places[i].hint,
+                iconContent: (hIcon => hIcon.includes('::') ? hIcon.slice(0, hIcon.indexOf('::')) : hIcon)(places[i].header)
             },
                 {
+                    preset: 'islands#blueStretchyIcon',
                     iconColor: opt.iconColor[getRandom(opt.iconColor.length)]
                 });
         }

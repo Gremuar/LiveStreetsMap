@@ -146,7 +146,7 @@ function init() {
             if (target.options._name !== 'listBox') {
                 let parent = target.getParent(),
                     pData = parent.data.getAll();
-                map.setCenter(tData.coords, tData.zoom ? tData.zoom : 16);
+                map.setCenter(tData.coords, tData.zoom ? tData.zoom : 17);
                 controls.street.removeAll();
                 parent.data.set('content', tData.content);
                 pData.streets[tData.content.toLowerCase()].forEach(street => controls.street.add(street));
@@ -162,7 +162,7 @@ function init() {
             if (target.options._name !== 'listBox') {
                 let parent = target.getParent(),
                     pData = parent.data.getAll();
-                map.setCenter(tData.coords, tData.zoom ? tData.zoom : 16);
+                map.setCenter(tData.coords, tData.zoom ? tData.zoom : 17);
                 parent.data.set('content', tData.content);
             }
         })

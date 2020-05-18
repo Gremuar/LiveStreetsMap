@@ -1,6 +1,6 @@
 ymaps.ready(init);
 function init() {
-    getJson('https://gremuar.github.io/LiveStreetsMap/map_data.json').then((config) => {
+    getJson('/LiveStreetsMap/map_data.json').then((config) => {
         if (typeof (config) == "object") {
             mapInit(config.map);
             if (typeof (lsm) == 'object') {
@@ -57,8 +57,9 @@ function init() {
         for (let i = 0; i < places.length; i++) {
             geoObjects[i] = new ymaps.Placemark(places[i].coords, {
                 balloonContentHeader: places[i].header,
-                balloonContentBody: "<div style='max-width:300px'>" +
-                    "<img src='" + places[i].photo + "' style='float:left;width:30%;margin-right:10px'/>" +
+                balloonContentBody: "<div style='max-width:500px'>" +
+                    //"<h2>"+ places[i].project_name +"</h2>" +
+                    (place => place.photo.length ? "<img src='" + place.photo + "' style='float:left;width:30%;margin-right:10px'/>" : '')(places[i]) +
                     "<p>" + places[i].text + "</p>",
                 balloonContentFooter: "<a href='" + places[i].link + "' target='_blank'>Подробнее о проекте</a>",
                 hintContent: places[i].hint,
@@ -101,7 +102,7 @@ function init() {
             streets_list[loc] = streets_list[loc].map(street => {
                 return new ymaps.control.ListBoxItem({
                     data: {
-                        content: street[0].toUpperCase() + street.slice(1),
+                        content: street.split(' ').map(word=>word[0].toUpperCase() + word.slice(1)).join(' '),
                         source_list: loc
                     },
                     state: { selected: false },
@@ -109,7 +110,7 @@ function init() {
                 })
             })
         }
-        [].concat(locs, Object.values(streets_list).reduce((m, n) => [...m, ...n])).forEach(point => setCoords(point))
+        [].concat(locs, Object.values(streets_list).reduce((m, n) => [...m, ...n])).forEach(point => setCoords(point));
         return {
             'location': new ymaps.control.ListBox({
                 data: {
@@ -170,7 +171,7 @@ function init() {
 
     async function setCoords(street_control) {
         let zone = lsm.options.get('restrictMapArea'),
-            prefix = street_control.data.get('source_list') + ',' || '',
+            prefix = street_control.data.get('source_list') ? street_control.data.get('source_list') + ', Улица ' : '',
             result = await ymaps.geocode(prefix + street_control.data.get('content'), {
                 boundedBy: zone,
                 kind: 'street',
